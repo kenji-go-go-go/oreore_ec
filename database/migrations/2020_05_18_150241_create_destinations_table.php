@@ -26,6 +26,9 @@ class CreateDestinationsTable extends Migration
             $table->string('zipcode');
             $table->string('prefecture');
             $table->string('city');
+            /**
+            *string->textに変更
+            **/
             $table->text('address1');
             $table->text('address2');
         });

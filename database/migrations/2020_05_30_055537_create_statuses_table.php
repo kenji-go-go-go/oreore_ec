@@ -15,10 +15,12 @@ class CreateStatusesTable extends Migration
     {
         Schema::create('statuses', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('deleted_at')->nullable();
-            $table->string('name');
+            $table->timestamps();
+            $table->softDeletes('deleted_at');
+            /**
+            *string->textに変更
+            **/
+            $table->text('name');
         });
     }
 

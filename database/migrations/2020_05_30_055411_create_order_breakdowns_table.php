@@ -15,9 +15,8 @@ class CreateOrderBreakdownsTable extends Migration
     {
         Schema::create('order_breakdowns', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('deleted_at')->nullable();
+            $table->timestamps();
+            $table->softDeletes('deleted_at');
             $table->string('order_details_id');
             $table->string('product_id');
             $table->integer('number');

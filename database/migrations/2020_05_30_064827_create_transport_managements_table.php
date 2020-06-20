@@ -15,9 +15,8 @@ class TransportManagementsTable extends Migration
     {
         Schema::create('transport_managements', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('deleted_at')->nullable();
+            $table->timestamps();
+            $table->softDeletes('deleted_at');
             $table->string('order_id');
             $table->string('product_id');
             $table->string('track_id');

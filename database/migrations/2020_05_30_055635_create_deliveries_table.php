@@ -15,13 +15,18 @@ class DeliveriesTable extends Migration
     {
         Schema::create('deliveries', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('deleted_at')->nullable();
-            $table->string('company');
-            $table->string('address');
+            $table->timestamps();
+            $table->softDeletes('deleted_at');
+            /**
+            *string->textに変更
+            **/
+            $table->text('company');
+            $table->text('address');
             $table->string('tel');
-            $table->string('name');
+            /**
+            *string->textに変更
+            **/
+            $table->text('name');
             $table->string('email');
         });
     }
