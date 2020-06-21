@@ -17,13 +17,19 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            $table->string('user_id');
-            $table->string('deliveriy_id');
-            $table->string('destination_id');
+            $table->unsignedBigInteger('user_id');//usersテーブルから
+            $table->foreign('user_id')->references('id')->on('users'); //外部キー参照
+            $table->unsignedBigInteger('deliveriy_id');//deliveriesテーブルから
+            $table->foreign('deliveriy_id')->references('id')->on('deliveries'); //外部キー参照
+            $table->unsignedBigInteger('destination_id');//destinationsテーブルから
+            $table->foreign('destination_id')->references('id')->on('destinations'); //外部キー参照
             $table->date('delivery_date');
-            $table->string('delivery_method_id');
-            $table->string('track_id');
-            $table->string('status_id');
+            $table->unsignedBigInteger('delivery_method_id');//delivery_methodsテーブルから
+            $table->foreign('delivery_method_id')->references('id')->on('delivery_methods'); //外部キー参照
+            $table->unsignedBigInteger('track_id');//tracksテーブルから
+            $table->foreign('track_id')->references('id')->on('tracks'); //外部キー参照
+            $table->unsignedBigInteger('status_id');//statusesテーブルから
+            $table->foreign('status_id')->references('id')->on('statuses'); //外部キー参照
         });
     }
 

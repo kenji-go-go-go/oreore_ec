@@ -17,8 +17,10 @@ class SiteMastersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            $table->string('order_id');
-            $table->string('track_id');
+            $table->unsignedBigInteger('order_id');//ordersテーブルから
+            $table->foreign('order_id')->references('id')->on('orders'); //外部キー参照
+            $table->unsignedBigInteger('track_id');//tracksテーブルから
+            $table->foreign('track_id')->references('id')->on('tracks'); //外部キー参照
         });
     }
 

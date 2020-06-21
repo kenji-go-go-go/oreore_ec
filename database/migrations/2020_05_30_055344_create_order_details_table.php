@@ -17,7 +17,8 @@ class CreateOrderDetailsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            $table->string('order_id');
+            $table->unsignedBigInteger('order_id');//ordersテーブルから
+            $table->foreign('order_id')->references('id')->on('orders'); //外部キー参照
             $table->integer('total_amount');
         });
     }

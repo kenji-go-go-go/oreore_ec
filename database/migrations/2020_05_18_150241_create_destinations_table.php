@@ -20,7 +20,8 @@ class CreateDestinationsTable extends Migration
             /**
             *外部キー制約が必要になる？
             **/
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id');//usersテーブルから
+            $table->foreign('user_id')->references('id')->on('users'); //外部キー参照
             $table->string('name');
             $table->string('tel');
             $table->string('zipcode');

@@ -17,8 +17,10 @@ class CreateOrderBreakdownsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            $table->string('order_details_id');
-            $table->string('product_id');
+            $table->unsignedBigInteger('order_details_id');//ordersテーブルから
+            $table->foreign('order_details_id')->references('id')->on('order_detailss'); //外部キー参照
+            $table->unsignedBigInteger('product_id');//productsテーブルから
+            $table->foreign('product_id')->references('id')->on('products'); //外部キー参照
             $table->integer('number');
         });
     }
