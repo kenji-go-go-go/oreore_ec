@@ -17,9 +17,9 @@ class SiteMastersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            $table->unsignedBigInteger('order_id')->comment('ordersテーブルから');
+            $table->unsignedBigInteger('order_id')->comment('オーダーID');
             $table->foreign('order_id')->references('id')->on('orders');
-            $table->unsignedBigInteger('track_id')->comment('tracksテーブルから');
+            $table->unsignedBigInteger('track_id')->comment('トラックID');
             $table->foreign('track_id')->references('id')->on('tracks');
         });
     }
