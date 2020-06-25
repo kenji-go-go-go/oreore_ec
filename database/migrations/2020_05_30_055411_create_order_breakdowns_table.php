@@ -17,11 +17,11 @@ class CreateOrderBreakdownsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            $table->unsignedBigInteger('order_details_id');//ordersテーブルから
-            $table->foreign('order_details_id')->references('id')->on('order_detailss'); //外部キー参照
-            $table->unsignedBigInteger('product_id');//productsテーブルから
-            $table->foreign('product_id')->references('id')->on('products'); //外部キー参照
-            $table->integer('number');
+            $table->unsignedBigInteger('order_details_id')->comment('order_detailsテーブルから');
+            $table->foreign('order_details_id')->references('id')->on('order_detailss');
+            $table->unsignedBigInteger('product_id')->comment('productsテーブルから');
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->integer('number')->comment('個数');
         });
     }
 

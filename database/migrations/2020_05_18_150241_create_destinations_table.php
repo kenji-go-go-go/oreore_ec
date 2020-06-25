@@ -17,21 +17,15 @@ class CreateDestinationsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            /**
-            *外部キー制約が必要になる？
-            **/
-            $table->unsignedBigInteger('user_id');//usersテーブルから
-            $table->foreign('user_id')->references('id')->on('users'); //外部キー参照
-            $table->string('name');
-            $table->string('tel');
-            $table->string('zipcode');
-            $table->string('prefecture');
-            $table->string('city');
-            /**
-            *string->textに変更
-            **/
-            $table->text('address1');
-            $table->text('address2');
+            $table->unsignedBigInteger('user_id')->comment('usersテーブルから');;
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('name')->comment('名前');
+            $table->string('tel')->comment('電話番号');
+            $table->string('zipcode')->comment('郵便番号');
+            $table->string('prefecture')->comment('都道府県');
+            $table->string('city')->comment('市区町村');
+            $table->text('address1')->comment('住所１');
+            $table->text('address2')->comment('住所２');
         });
     }
 

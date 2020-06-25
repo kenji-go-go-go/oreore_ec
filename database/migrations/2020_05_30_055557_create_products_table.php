@@ -17,13 +17,10 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            /**
-            *string->textに変更
-            **/
-            $table->text('name');
-            $table->string('image_path');
-            $table->string('unit_price');
-            $table->integer('stock_number');
+            $table->text('name')->comment('商品名');
+            $table->string('image_path')->comment('商品画像');
+            $table->string('unit_price')->comment('商品単価');
+            $table->integer('stock_number')->comment('在庫数');
         });
     }
 

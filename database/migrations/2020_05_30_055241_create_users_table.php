@@ -17,13 +17,10 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            $table->string('name');
-            $table->string('email');
-            /**
-            *string->textに変更
-            **/
-            $table->text('company');
-            $table->string('password');
+            $table->string('name')->comment('ユーザー名');;
+            $table->string('email')->comment('メールアドレス');
+            $table->text('company')->comment('会社名');
+            $table->string('password')；->comment('パスワード');
         });
     }
 

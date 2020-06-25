@@ -17,19 +17,19 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            $table->unsignedBigInteger('user_id');//usersテーブルから
-            $table->foreign('user_id')->references('id')->on('users'); //外部キー参照
-            $table->unsignedBigInteger('deliveriy_id');//deliveriesテーブルから
-            $table->foreign('deliveriy_id')->references('id')->on('deliveries'); //外部キー参照
-            $table->unsignedBigInteger('destination_id');//destinationsテーブルから
-            $table->foreign('destination_id')->references('id')->on('destinations'); //外部キー参照
-            $table->date('delivery_date');
-            $table->unsignedBigInteger('delivery_method_id');//delivery_methodsテーブルから
-            $table->foreign('delivery_method_id')->references('id')->on('delivery_methods'); //外部キー参照
-            $table->unsignedBigInteger('track_id');//tracksテーブルから
-            $table->foreign('track_id')->references('id')->on('tracks'); //外部キー参照
-            $table->unsignedBigInteger('status_id');//statusesテーブルから
-            $table->foreign('status_id')->references('id')->on('statuses'); //外部キー参照
+            $table->unsignedBigInteger('user_id')->comment('usersテーブルから');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('delivery_id')->comment('deliveriesテーブルから');
+            $table->foreign('delivery_d')->references('id')->on('deliveries');
+            $table->unsignedBigInteger('destination_id')->comment('destinationsテーブルから');
+            $table->foreign('destination_id')->references('id')->on('destinations')
+            $table->date('delivery_date')->comment('配達希望時間');
+            $table->unsignedBigInteger('delivery_method_id')->comment('delivery_methodsテーブルから');
+            $table->foreign('delivery_method_id')->references('id')->on('delivery_methods');
+            $table->unsignedBigInteger('track_id')->comment('tracksテーブルから');
+            $table->foreign('track_id')->references('id')->on('tracks');
+            $table->unsignedBigInteger('status_id')->comment('statusesテーブルから');
+            $table->foreign('status_id')->references('id')->on('statuses');
         });
     }
 

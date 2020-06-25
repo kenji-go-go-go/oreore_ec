@@ -17,10 +17,7 @@ class CreateDeliveryMethodsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            /**
-            *string->textに変更
-            **/
-            $table->text('name');
+            $table->text('name')->comment('希望配達方法');
         });
     }
 

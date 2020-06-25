@@ -17,17 +17,11 @@ class DeliveriesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            /**
-            *string->textに変更
-            **/
-            $table->text('company');
-            $table->text('address');
-            $table->string('tel');
-            /**
-            *string->textに変更
-            **/
-            $table->text('name');
-            $table->string('email');
+            $table->text('company')->comment('会社名');
+            $table->text('address')->comment('住所');
+            $table->string('tel')->comment('電話番号');
+            $table->text('name')->comment('名前');
+            $table->string('email')->comment('メールアドレス');
         });
     }
 

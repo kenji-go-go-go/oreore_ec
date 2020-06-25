@@ -17,11 +17,8 @@ class TransportManagersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            /**
-            *string->textに変更
-            **/
-            $table->text('name');
-            $table->string('password');
+            $table->text('name')->comment('ログイン名');
+            $table->string('password')->comment('パスワード');
         });
     }
 

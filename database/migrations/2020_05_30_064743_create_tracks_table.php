@@ -17,11 +17,8 @@ class TracksTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            /**
-            *string->textに変更
-            **/
-            $table->text('name');
-            $table->text('name');
+            $table->text('name')->comment('配送トラック名');
+            $table->text('name')->comment('ドライバー名');
         });
     }
 
