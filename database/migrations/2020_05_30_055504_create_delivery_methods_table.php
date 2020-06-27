@@ -13,6 +13,7 @@ class CreateDeliveryMethodsTable extends Migration
      */
     public function up()
     {
+      //配達方法
         Schema::create('delivery_methods', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

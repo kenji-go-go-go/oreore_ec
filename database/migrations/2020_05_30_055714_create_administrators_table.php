@@ -13,6 +13,7 @@ class AdministratorsTable extends Migration
      */
     public function up()
     {
+      //ECサイト管理者
         Schema::create('administrators', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

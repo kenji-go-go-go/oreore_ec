@@ -13,6 +13,7 @@ class SiteMastersTable extends Migration
      */
     public function up()
     {
+      //ECサイト管理
         Schema::create('site_masters', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

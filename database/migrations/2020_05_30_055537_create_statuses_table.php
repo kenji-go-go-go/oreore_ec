@@ -13,6 +13,7 @@ class CreateStatusesTable extends Migration
      */
     public function up()
     {
+      //配達状況ステータス
         Schema::create('statuses', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

@@ -13,6 +13,7 @@ class DeliveriesTable extends Migration
      */
     public function up()
     {
+      //配達元
         Schema::create('deliveries', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

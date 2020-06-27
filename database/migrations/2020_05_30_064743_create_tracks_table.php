@@ -13,6 +13,7 @@ class TracksTable extends Migration
      */
     public function up()
     {
+      //配送トラック
         Schema::create('tracks', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

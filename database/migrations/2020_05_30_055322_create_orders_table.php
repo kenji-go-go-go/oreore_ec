@@ -13,6 +13,7 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
+      //注文
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

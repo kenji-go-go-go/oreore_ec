@@ -13,6 +13,7 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
+      //商品マスタ
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

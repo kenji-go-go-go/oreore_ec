@@ -13,6 +13,7 @@ class CreateOrderBreakdownsTable extends Migration
      */
     public function up()
     {
+      //注文明細内訳
         Schema::create('order_breakdowns', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

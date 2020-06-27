@@ -13,6 +13,7 @@ class CreateDestinationsTable extends Migration
      */
     public function up()
     {
+      //配送先
         Schema::create('destinations', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

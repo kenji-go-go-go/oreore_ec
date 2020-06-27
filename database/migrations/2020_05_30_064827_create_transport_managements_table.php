@@ -13,6 +13,7 @@ class TransportManagementsTable extends Migration
      */
     public function up()
     {
+      //トラック管理
         Schema::create('transport_managements', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
