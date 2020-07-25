@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('name')->comment('ユーザー名');;
             $table->string('email')->comment('メールアドレス');
             $table->text('company')->comment('会社名');
-            $table->string('password')；->comment('パスワード');
+            $table->string('password')->comment('パスワード');
         });
     }
 

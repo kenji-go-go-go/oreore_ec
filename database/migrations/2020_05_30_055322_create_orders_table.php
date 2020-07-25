@@ -23,7 +23,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('delivery_id')->comment('配送元ID');
             $table->foreign('delivery_d')->references('id')->on('deliveries');
             $table->unsignedBigInteger('destination_id')->comment('配送先ID');
-            $table->foreign('destination_id')->references('id')->on('destinations')
+            $table->foreign('destination_id')->references('id')->on('destinations');
             $table->date('delivery_date')->comment('配達希望時間');
             $table->unsignedBigInteger('delivery_method_id')->comment('配達方法ID');
             $table->foreign('delivery_method_id')->references('id')->on('delivery_methods');
