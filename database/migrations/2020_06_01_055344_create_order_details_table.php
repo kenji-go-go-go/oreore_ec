@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdministratorsTable extends Migration
+class CreateOrderDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateAdministratorsTable extends Migration
      */
     public function up()
     {
-      //ECサイト管理者
-        Schema::create('administrators', function (Blueprint $table) {
+      //注文明細
+        Schema::create('order_detailss', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            $table->text('name')->comment('ログイン名');
-            $table->string('password')->comment('パスワード');
+            $table->unsignedBigInteger('order_id')->comment('オーダーID');
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->integer('total_amount')->comment('合計金額');
         });
     }
 
@@ -30,6 +31,6 @@ class CreateAdministratorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('administrators');
+        Schema::dropIfExists('order_detailss');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdministratorsTable extends Migration
+class CreateTransportManagersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateAdministratorsTable extends Migration
      */
     public function up()
     {
-      //ECサイト管理者
-        Schema::create('administrators', function (Blueprint $table) {
+      //配送トラック管理者
+        Schema::create('transport_managers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
@@ -30,6 +30,6 @@ class CreateAdministratorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('administrators');
+        Schema::dropIfExists('transport_managers');
     }
 }

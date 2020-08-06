@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TracksTable extends Migration
+class CreateTracksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,8 +18,8 @@ class TracksTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            $table->text('name')->comment('配送トラック名');
-            $table->text('name')->comment('ドライバー名');
+            $table->text('trackname')->comment('配送トラック名');
+            $table->text('drivername')->comment('ドライバー名');
         });
     }
 
