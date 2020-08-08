@@ -19,7 +19,6 @@ class CreateDestinationsTable extends Migration
             $table->timestamps();
             $table->softDeletes('deleted_at');
             $table->unsignedBigInteger('user_id')->comment('ユーザーID');
-            //$table->bigInteger('user_id')->comment('ユーザーID');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('name')->comment('名前');
             $table->string('tel')->comment('電話番号');

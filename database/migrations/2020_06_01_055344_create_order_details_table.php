@@ -14,7 +14,7 @@ class CreateOrderDetailsTable extends Migration
     public function up()
     {
       //注文明細
-        Schema::create('order_detailss', function (Blueprint $table) {
+        Schema::create('order_details', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->softDeletes('deleted_at');
@@ -31,6 +31,6 @@ class CreateOrderDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_detailss');
+        Schema::dropIfExists('order_details');
     }
 }
