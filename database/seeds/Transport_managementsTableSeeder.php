@@ -11,11 +11,14 @@ class Transport_managementsTableSeeder extends Seeder
      */
     public function run()
     {
-        $transport_management = DB::table('transport_managements')->create([
+        $set_order_id = App\Order::select('id')->orderByRaw("RAND()")->first()->id;
+        $set_product_id = App\Product::select('id')->orderByRaw("RAND()")->first()->id;
+        $set_track_id = App\Track::select('id')->orderByRaw("RAND()")->first()->id;
+        DB::table('transport_managements')->insert([
             [
-                'order_id'           => $order->id,
-                'product_id'      => $product->id,
-                'track_id'      => $track->id,
+                'order_id'           => $set_order_id,
+                'product_id'      => $set_product_id,
+                'track_id'      => $set_track_id,
             ],
         ]);
     }

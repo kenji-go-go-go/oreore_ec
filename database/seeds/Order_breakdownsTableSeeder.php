@@ -11,10 +11,12 @@ class Order_breakdownsTableSeeder extends Seeder
      */
     public function run()
     {
-        $order_breakdown = DB::table('order_breakdowns')->create([
+        $set_orderdetail_id = App\Orderdetail::select('id')->orderByRaw("RAND()")->first()->id;
+        $set_product_id = App\Product::select('id')->orderByRaw("RAND()")->first()->id;
+        DB::table('order_breakdowns')->insert([
             [
-                'order_details_id'           => $order_detail->id,
-                'product_id'      => $product->id,
+                'order_detail_id'           => $set_orderdetail_id,
+                'product_id'      => $set_product_id,
                 'number'      => 10,
             ],
         ]);

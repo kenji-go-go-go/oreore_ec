@@ -13,14 +13,14 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UsersTableSeeder::class,
-            DestinationsTableSeeder::class,
-            DeliveriesTableSeeder::class,
             Delivery_methodsTableSeeder::class,
-            StatususTableSeeder::class,
+            StatusesTableSeeder::class,
+            ProductsTableSeeder::class,
+            DeliveriesTableSeeder::class,
             AdministratorsTableSeeder::class,
             TracksTableSeeder::class,
             Transport_managersTableSeeder::class,
-            ProductsTableSeeder::class,
+            DestinationsTableSeeder::class,
             OrdersTableSeeder::class,
             Order_detailsTableSeeder::class,
             Order_breakdownsTableSeeder::class,

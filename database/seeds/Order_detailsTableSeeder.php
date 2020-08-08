@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class Order_detailsTableSeeder extends Seeder
 {
@@ -11,9 +12,12 @@ class Order_detailsTableSeeder extends Seeder
      */
     public function run()
     {
-        $order_detail = DB::table('order_details')->create([
+        $set_order_id = App\Order::select('id')->orderByRaw("RAND()")->first()->id;
+        DB::table('order_details')->insert([
             [
-                'order_id'           => $order->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'order_id'           => $set_order_id,
                 'total_amount'      => '9990',
             ],
         ]);

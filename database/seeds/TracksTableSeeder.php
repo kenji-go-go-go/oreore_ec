@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class TracksTableSeeder extends Seeder
 {
@@ -11,10 +12,12 @@ class TracksTableSeeder extends Seeder
      */
     public function run()
     {
-        $track = DB::table('tracks')->create([
+        DB::table('tracks')->insert([
             [
-                'name'      => '一号車トラック',
-                'name'      => '一号車ドライバー',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'trackname'      => '一号車トラック',
+                'drivername'      => '一号車ドライバー',
             ],
         ]);
     }

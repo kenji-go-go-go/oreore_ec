@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class AdministratorsTableSeeder extends Seeder
 {
@@ -11,8 +12,10 @@ class AdministratorsTableSeeder extends Seeder
      */
     public function run()
     {
-        $administrator = DB::table('administrators')->create([
+        DB::table('administrators')->insert([
             [
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
                 'name'      => 'admintest',
                 'password'       => Hash::make('password'),
             ],

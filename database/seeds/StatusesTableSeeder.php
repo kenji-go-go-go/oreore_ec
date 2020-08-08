@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class StatusesTableSeeder extends Seeder
 {
@@ -11,10 +12,10 @@ class StatusesTableSeeder extends Seeder
      */
     public function run()
     {
-        $status = DB::table('statuses')->create([
-            [
+        DB::table('statuses')->insert([
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
                 'name'      => '配送中',
-            ],
         ]);
     }
 }

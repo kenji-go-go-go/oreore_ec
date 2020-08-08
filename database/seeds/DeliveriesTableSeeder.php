@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class DeliveriesTableSeeder extends Seeder
 {
@@ -11,8 +12,10 @@ class DeliveriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $delivery = DB::table('deliveries')->create([
+        DB::table('deliveries')->insert([
             [
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
                 'company'      => '株式会社テスト',
                 'address'           => '東京都江東区配送元町9-9-9',
                 'tel'           => '09011111111',

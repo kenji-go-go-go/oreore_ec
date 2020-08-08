@@ -11,10 +11,8 @@ class Delivery_methodsTableSeeder extends Seeder
      */
     public function run()
     {
-        $delivery_method = DB::table('delivery_methods')->create([
-            [
+        DB::table('delivery_methods')->insert([
                 'name'      => '置き配',
-            ],
         ]);
     }
 }

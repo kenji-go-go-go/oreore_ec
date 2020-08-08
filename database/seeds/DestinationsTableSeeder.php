@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class DestinationsTableSeeder extends Seeder
 {
@@ -11,9 +12,11 @@ class DestinationsTableSeeder extends Seeder
      */
     public function run()
     {
-        $destination = DB::table('destinations')->create([
-            [
-                'user_id'           => $user->id,
+        $set_user_id = App\User::select('id')->orderByRaw("RAND()")->first()->id;
+        DB::table('destinations')->insert([
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'user_id'           => $set_user_id,
                 'name'           => '配送先テスト宛先名',
                 'tel'           => '09099999999',
                 'zipcode'      => '1231234',
@@ -21,7 +24,6 @@ class DestinationsTableSeeder extends Seeder
                 'city'      => '千代田区',
                 'address1'      => 'テスト町',
                 'address2'      => '1-1-1',
-            ],
         ]);
     }
 }
