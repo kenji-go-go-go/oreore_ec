@@ -22,6 +22,8 @@ class CreateProductsTable extends Migration
             $table->string('image_path')->comment('商品画像');
             $table->string('unit_price')->comment('商品単価');
             $table->integer('stock_number')->comment('在庫数');
+            $table->text('description')->comment('商品説明');
+            $table->integer('box_number')->comment('箱数');
         });
     }
 
