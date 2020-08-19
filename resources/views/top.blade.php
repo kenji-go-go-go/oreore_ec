@@ -123,219 +123,163 @@
             <div class="container">
               <div class="row">
 
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                    <img
-                    class="card-img-top btn fly"
-                    src="https://ichiichiban.s3-ap-northeast-1.amazonaws.com/products/1_thumbnail.jpg"
-                    alt="tomato"
-                    style="height: 225px; width: 100%; display: block;"
-                    data-toggle="modal"
-                    data-target="#productModal1"
-                    data-whatever="productTomato"
-                    >
-                    <div class="card-body">
-                      <p class="card-text">フレッシュで甘いトマト</p>
-                      <div class="text-right">
-                        <small class="text-muted">¥900</small>
-                      </div>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="input-group col-sm-5">
-                          <input type="text" class="form-control quantity"
-                          aria-label="Dollar amount (with dot and two decimal places)">
-                          <div class="input-group-append">
-                            <span class="input-group-text">個</span>
-                          </div>
+                @forelse($products as $product)
+                  <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <img
+                      class="card-img-top btn fly"
+                      src="{{asset($product->image_path)}}";
+                      alt="tomato"
+                      style="height: 225px; width: 100%; display: block;"
+                      data-toggle="modal"
+                      data-target="#productModal1"
+                      data-whatever="productTomato"
+                      >
+                      <div class="card-body">
+                        <p class="card-text">{{$product->name}}</p>
+                        <div class="text-right">
+                          <small class="text-muted">¥{{$product->unit_price}}</small>
                         </div>
-                        <button type="button" class="btn col-sm-5 btn-sm btn-outline-danger"
-                        onclick="ToCart(1, 0);">カートに追加
-                      </button>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="input-group col-sm-5">
+                            <input type="text" class="form-control quantity"
+                            aria-label="Dollar amount (with dot and two decimal places)">
+                            <div class="input-group-append">
+                              <span class="input-group-text">個</span>
+                            </div>
+                          </div>
+                          <button type="button" class="btn col-sm-5 btn-sm btn-outline-danger"
+                          onclick="ToCart(1, 0);">カートに追加
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                @empty
+                <p>No products yet</p>
+                @endforelse
+                
               </div>
-              <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
+            </div>
+          </div>
+
+    <!-- Modal -->
+
+          <div class="modal fade" id="productModal1" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel">
+            <!-- //モーダルウィンドウの縦表示位置を調整・画像を大きく見せる -->
+            <div class="modal-dialog modal-lg modal-middle">
+              <div class="modal-content">
+                <div class="modal-body">
                   <img
-                  class="card-img-top btn fly"
-                  src="https://ichiichiban.s3-ap-northeast-1.amazonaws.com/products/2_thumbnail.jpg"
+                  src="https://ichiichiban.s3-ap-northeast-1.amazonaws.com/products/1_image1.jpg"
                   alt="tomato"
-                  style="height: 225px; width: 100%; display: block;"
-                  data-toggle="modal"
-                  data-target="#productModal2"
-                  data-whatever="productTomato"
-                  >
-                  <div class="card-body">
-                    <p class="card-text">とてもフレッシュ</p>
-                    <div class="text-right">
-                      <small class="text-muted">¥100</small>
+                  style=" width: 100%;"
+                  class="aligncenter size-full wp-image-425"/>
+                </div>
+                <form>
+                  <div class="container-fluid">
+                    <div class="row mb-2">
+                      <div class="col-md-4">フレッシュで甘いトマト！まさにフレッシュフレッシュフレッシュ</div>
+                      <div class="col-md-4 ml-auto text-right">1箱10個入り</div>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="input-group col-sm-5">
-                        <input type="text" class="form-control quantity"
+                    <div class="row mb-2">
+                      <div class="input-group">
+                        <input type="text" class="form-control col-md-4 quantityfromdetail"
                         aria-label="Dollar amount (with dot and two decimal places)">
                         <div class="input-group-append">
                           <span class="input-group-text">個</span>
                         </div>
                       </div>
-                      <button type="button" class="btn col-sm-5 btn-sm btn-outline-danger"
-                      onclick="ToCart(2, 1);">カートに追加
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-ash" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger"
+                      onclick="ToCartFromDetail(1, 0);">カートに追加
                     </button>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img
-                class="card-img-top btn fly"
-                src="https://ichiichiban.s3-ap-northeast-1.amazonaws.com/products/3_thumbnail.jpg"
-                alt="tomato"
-                style="height: 225px; width: 100%; display: block;"
-                data-toggle="modal"
-                data-target="#productModal3"
-                data-whatever="productTomato"
-                >
-                <div class="card-body">
-                  <p class="card-text">フレッシュ極まれリ</p>
-                  <div class="text-right">
-                    <small class="text-muted">¥200</small>
-                  </div>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="input-group col-sm-5">
-                      <input type="text" class="form-control quantity"
-                      aria-label="Dollar amount (with dot and two decimal places)">
-                      <div class="input-group-append">
-                        <span class="input-group-text">個</span>
+          </div>
+
+          <div class="modal fade" id="productModal2" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel">
+            <!-- //モーダルウィンドウの縦表示位置を調整・画像を大きく見せる -->
+            <div class="modal-dialog modal-lg modal-middle">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <img
+                  src="https://ichiichiban.s3-ap-northeast-1.amazonaws.com/products/2_image1.jpg"
+                  alt="tomato"
+                  style=" width: 100%;"
+                  class="aligncenter size-full wp-image-425"/>
+                </div>
+                <form>
+                  <div class="container-fluid">
+                    <div class="row mb-2">
+                      <div class="col-md-4">とてもフレッシュ！まさにフレッシュフレッシュフレッシュ</div>
+                      <div class="col-md-4 ml-auto text-right">1箱20個入り</div>
+                    </div>
+                    <div class="row mb-2">
+                      <div class="input-group">
+                        <input type="text" class="form-control col-md-4 quantityfromdetail"
+                        aria-label="Dollar amount (with dot and two decimal places)">
+                        <div class="input-group-append">
+                          <span class="input-group-text">個</span>
+                        </div>
                       </div>
                     </div>
-                    <button type="button" class="btn col-sm-5 btn-sm btn-outline-danger"
-                    onclick="ToCart(3, 2);">カートに追加
-                  </button>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-ash" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger"
+                    onclick="ToCartFromDetail(2, 1);">カートに追加</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="productModal3" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel">
+            <!-- //モーダルウィンドウの縦表示位置を調整・画像を大きく見せる -->
+            <div class="modal-dialog modal-lg modal-middle">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <img
+                  src="https://ichiichiban.s3-ap-northeast-1.amazonaws.com/products/3_image1.jpg"
+                  alt="tomato"
+                  style=" width: 100%;"
+                  class="aligncenter size-full wp-image-425"/>
                 </div>
+                <form>
+                  <div class="container-fluid">
+                    <div class="row mb-2">
+                      <div class="col-md-4">フレッシュ極まれリ！まさにフレッシュフレッシュフレッシュ</div>
+                      <div class="col-md-4 ml-auto text-right">1箱30個入り</div>
+                    </div>
+                    <div class="row mb-2">
+                      <div class="input-group">
+                        <input type="text" class="form-control col-md-4 quantityfromdetail"
+                        aria-label="Dollar amount (with dot and two decimal places)">
+                        <div class="input-group-append">
+                          <span class="input-group-text">個</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-ash" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger"
+                    onclick="ToCartFromDetail(3, 2);">カートに追加
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
-
-        </div>
-      </div>
-      </div>
-
-      <!-- Modal -->
-
-      <div class="modal fade" id="productModal1" tabindex="-1" role="dialog"
-      aria-labelledby="myLargeModalLabel">
-      <!-- //モーダルウィンドウの縦表示位置を調整・画像を大きく見せる -->
-      <div class="modal-dialog modal-lg modal-middle">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img
-          src="https://ichiichiban.s3-ap-northeast-1.amazonaws.com/products/1_image1.jpg"
-          alt="tomato"
-          style=" width: 100%;"
-          class="aligncenter size-full wp-image-425"/>
-        </div>
-        <form>
-          <div class="container-fluid">
-            <div class="row mb-2">
-              <div class="col-md-4">フレッシュで甘いトマト！まさにフレッシュフレッシュフレッシュ</div>
-              <div class="col-md-4 ml-auto text-right">1箱10個入り</div>
-            </div>
-            <div class="row mb-2">
-              <div class="input-group">
-                <input type="text" class="form-control col-md-4 quantityfromdetail"
-                aria-label="Dollar amount (with dot and two decimal places)">
-                <div class="input-group-append">
-                  <span class="input-group-text">個</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-ash" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-danger"
-            onclick="ToCartFromDetail(1, 0);">カートに追加
-          </button>
-        </div>
-      </div>
-      </div>
-      </div>
-
-      <div class="modal fade" id="productModal2" tabindex="-1" role="dialog"
-      aria-labelledby="myLargeModalLabel">
-      <!-- //モーダルウィンドウの縦表示位置を調整・画像を大きく見せる -->
-      <div class="modal-dialog modal-lg modal-middle">
-      <div class="modal-content">
-      <div class="modal-body">
-        <img
-        src="https://ichiichiban.s3-ap-northeast-1.amazonaws.com/products/2_image1.jpg"
-        alt="tomato"
-        style=" width: 100%;"
-        class="aligncenter size-full wp-image-425"/>
-      </div>
-      <form>
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-md-4">とてもフレッシュ！まさにフレッシュフレッシュフレッシュ</div>
-            <div class="col-md-4 ml-auto text-right">1箱20個入り</div>
-          </div>
-          <div class="row mb-2">
-            <div class="input-group">
-              <input type="text" class="form-control col-md-4 quantityfromdetail"
-              aria-label="Dollar amount (with dot and two decimal places)">
-              <div class="input-group-append">
-                <span class="input-group-text">個</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-ash" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-danger"
-          onclick="ToCartFromDetail(2, 1);">カートに追加
-        </button>
-      </div>
-      </div>
-      </div>
-      </div>
-
-      <div class="modal fade" id="productModal3" tabindex="-1" role="dialog"
-      aria-labelledby="myLargeModalLabel">
-      <!-- //モーダルウィンドウの縦表示位置を調整・画像を大きく見せる -->
-      <div class="modal-dialog modal-lg modal-middle">
-      <div class="modal-content">
-      <div class="modal-body">
-        <img
-        src="https://ichiichiban.s3-ap-northeast-1.amazonaws.com/products/3_image1.jpg"
-        alt="tomato"
-        style=" width: 100%;"
-        class="aligncenter size-full wp-image-425"/>
-      </div>
-      <form>
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-md-4">フレッシュ極まれリ！まさにフレッシュフレッシュフレッシュ</div>
-            <div class="col-md-4 ml-auto text-right">1箱30個入り</div>
-          </div>
-          <div class="row mb-2">
-            <div class="input-group">
-              <input type="text" class="form-control col-md-4 quantityfromdetail"
-              aria-label="Dollar amount (with dot and two decimal places)">
-              <div class="input-group-append">
-                <span class="input-group-text">個</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-ash" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-danger"
-          onclick="ToCartFromDetail(3, 2);">カートに追加
-        </button>
-      </div>
-      </div>
-      </div>
-      </div>
 
       </div>
     </div>
