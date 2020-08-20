@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DeliveriesTable extends Migration
+class CreateDeliveriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class DeliveriesTable extends Migration
      */
     public function up()
     {
+      //配達元
         Schema::create('deliveries', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('deleted_at')->nullable();
-            $table->string('company');
-            $table->string('address');
-            $table->string('tel');
-            $table->string('name');
-            $table->string('email');
+            $table->timestamps();
+            $table->softDeletes('deleted_at');
+            $table->text('company')->comment('会社名');
+            $table->text('address')->comment('住所');
+            $table->string('tel')->comment('電話番号');
+            $table->text('name')->comment('名前');
+            $table->string('email')->comment('メールアドレス');
         });
     }
 

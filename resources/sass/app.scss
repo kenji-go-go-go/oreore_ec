@@ -1,1 +1,80 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Material icon
+$material-icons-font-path: '~material-icons/iconfont/';
+ 
+@import '~material-icons/iconfont/material-icons.scss';
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #fff;
+}
+
+h1, .h1 {
+    font-size: 2.5rem;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.navbar-green {
+    background: #78A663;
+    color: #fff;
+}
+
+.navbar-green a {
+    color: #fff;
+}
+
+a.nav-link {
+    position: relative;
+}
+
+i.material-icons.cartColor {
+    position: absolute;
+    left: -20px;
+}
+
+li.nav-item {
+    padding-left: 20px;
+}
+
+.product-index .hour, .product-index .minute, .product-index .seconds {
+    font-size: 22px;
+    padding: 3px;
+    background-color: orange;
+    border-radius: 5px;
+    color: #fff;
+    margin: 0 3px;
+}
+
+.product-index img.fly {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .product-index img.fly:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    cursor: pointer;
+  }

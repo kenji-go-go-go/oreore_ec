@@ -13,13 +13,14 @@ class CreateOrderDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('order_detailss', function (Blueprint $table) {
+      //注文明細
+        Schema::create('order_details', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('deleted_at')->nullable();
-            $table->string('order_id');
-            $table->integer('total_amount');
+            $table->timestamps();
+            $table->softDeletes('deleted_at');
+            $table->unsignedBigInteger('order_id')->comment('オーダーID');
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->integer('total_amount')->comment('合計金額');
         });
     }
 
@@ -30,6 +31,6 @@ class CreateOrderDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_detailss');
+        Schema::dropIfExists('order_details');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SiteMastersTable extends Migration
+class CreateSiteMastersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class SiteMastersTable extends Migration
      */
     public function up()
     {
+      //ECサイト管理
         Schema::create('site_masters', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('deleted_at')->nullable();
-            $table->string('order_id');
-            $table->string('track_id');
+            $table->timestamps();
+            $table->softDeletes('deleted_at');
+            $table->unsignedBigInteger('order_id')->comment('オーダーID');
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->unsignedBigInteger('track_id')->comment('トラックID');
+            $table->foreign('track_id')->references('id')->on('tracks');
         });
     }
 

@@ -13,15 +13,17 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
+      //商品マスタ
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('deleted_at')->nullable();
-            $table->string('name');
-            $table->string('image_path');
-            $table->string('unit_price');
-            $table->integer('stock_number');            
+            $table->timestamps();
+            $table->softDeletes('deleted_at');
+            $table->text('name')->comment('商品名');
+            $table->string('image_path')->comment('商品画像');
+            $table->string('unit_price')->comment('商品単価');
+            $table->integer('stock_number')->comment('在庫数');
+            $table->text('description')->comment('商品説明');
+            $table->integer('box_number')->comment('箱数');
         });
     }
 

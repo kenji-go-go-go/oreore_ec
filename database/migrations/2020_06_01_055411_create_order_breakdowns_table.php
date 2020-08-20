@@ -13,14 +13,16 @@ class CreateOrderBreakdownsTable extends Migration
      */
     public function up()
     {
+      //注文明細内訳
         Schema::create('order_breakdowns', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('deleted_at')->nullable();
-            $table->string('order_details_id');
-            $table->string('product_id');
-            $table->integer('number');
+            $table->timestamps();
+            $table->softDeletes('deleted_at');
+            $table->unsignedBigInteger('order_detail_id')->comment('オーダー詳細ID');
+            $table->foreign('order_detail_id')->references('id')->on('order_details');
+            $table->unsignedBigInteger('product_id')->comment('プロダクトID');
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->integer('number')->comment('個数');
         });
     }
 

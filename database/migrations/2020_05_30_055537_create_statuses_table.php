@@ -13,12 +13,12 @@ class CreateStatusesTable extends Migration
      */
     public function up()
     {
+      //配達状況ステータス
         Schema::create('statuses', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('deleted_at')->nullable();
-            $table->string('name');
+            $table->timestamps();
+            $table->softDeletes('deleted_at');
+            $table->text('name')->comment('ステータス内容');
         });
     }
 
